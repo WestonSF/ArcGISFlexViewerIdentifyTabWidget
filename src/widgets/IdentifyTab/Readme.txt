@@ -1,0 +1,1 @@
+<widget left="0"   bottom="0"  config="widgets/IdentifyTab/IdentifyTabWidget.xml" url="widgets/IdentifyTab/IdentifyTabWidget.swf"/>

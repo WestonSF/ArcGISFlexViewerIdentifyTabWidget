@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+
+<configuration>	
+	<geometryServiceURL>http://203.190.214.166/arcgis/rest/services/Utilities/Geometry/GeometryServer</geometryServiceURL>
+
+	<!-- Info Window style -->
+	<windowheight>240</windowheight>
+	<windowwidth>320</windowwidth>
+	<windowalpha>0.8</windowalpha>	
+	<windowtitle>Information</windowtitle>	
+
+	<relateButtonLabel>Show Data Grid</relateButtonLabel>
+	<selectButtonLabel>Select by Parcel</selectButtonLabel>
+	<selectFeatureMapService>http://203.190.214.166/arcgis/rest/services/Waimakariri/Property/MapServer/4</selectFeatureMapService> <!-- Map service layer to use for selection -->
+	
+	<relateID>0</relateID> <!-- The ID of the relationship setup on the map service, NOTE: ALL Map Services will use this ID -->
+			
+	<hyperlinks> <!-- List of hyperlinks to use in popups -->	
+		<hyperlink>
+			<layername>Rating Assessment</layername> <!-- Name of the layer to include hyperlink in. This is the name of the layer in the map service -->
+			<variable>VNZ</variable> <!-- The field name, which will be inserted into hyperlink -->
+			<link>http://waimakdc/cgi-bin/reg/rglim?lim&amp;K1&amp;VNZ</link> <!-- The hyperlink with above variable inserted -->
+			<linkName>To NCS</linkName> <!-- The hyperlink text to show in popup -->
+		</hyperlink>
+		<hyperlink>
+			<layername>Rating Assessment</layername>
+			<variable>VNZ</variable>
+			<link>TRIM://VNZ?open</link>
+			<linkName>To TRIM</linkName>
+		</hyperlink>		
+	</hyperlinks>		
+			
+	<!-- Map service details -->
+	<mapservices>
+		<mapservice>
+			<url>http://203.190.214.166/arcgis/rest/services/Waimakariri/Property/MapServer</url> <!-- Map service URL -->
+			<layername>Property</layername> <!-- The name of the map service specified in the main config file -->
+			<identifyLayers>1,5</identifyLayers> <!-- The layers in the map service to include in the identify -->
+			<removeFields>SHAPE,OBJECTID,SHAPE.STLength(),SHAPE.STArea()</removeFields>	<!-- The fields to exclude from ALL layers in the map service -->
+			<defaulttab>Rating Assessment</defaulttab> <!-- Which layer tab will be selected by default -->	
+		</mapservice>
+		<mapservice>
+			<url>http://203.190.214.166/arcgis/rest/services/Waimakariri/UtilitiesWater/MapServer</url>
+			<layername>Utilities - Water</layername>
+			<identifyLayers>0,1,2,3,4,5,6,7,8,9,10,11,12</identifyLayers>
+			<removeFields>SHAPE,OBJECTID,SHAPE.STLength(),SHAPE.STArea()</removeFields>		
+			<defaulttab>MAIN</defaulttab>
+		</mapservice>	
+	</mapservices>		
+</configuration>
